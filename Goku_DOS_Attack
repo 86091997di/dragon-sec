@@ -1,0 +1,20 @@
+# Simula um ataque DoS com Goku spammando Kamehameha
+
+import socket
+import time
+
+ip = "127.0.0.1"
+porta = 80
+pacote = b"KAMEHAMEHA" * 100
+
+print("Goku começou o ataque DoS com Kamehameha infinito...")
+
+while True:
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((ip, porta))
+        s.send(pacote)
+        s.close()
+        time.sleep(0.1)
+    except Exception as e:
+        print(f"Erro: {e}")
